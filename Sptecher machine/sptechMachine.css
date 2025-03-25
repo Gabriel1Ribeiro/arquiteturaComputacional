@@ -1,0 +1,176 @@
+
+* {
+    font-family: Monaco, "Consolas", "Courier New", monospace;
+}
+
+div{
+    display: flex;
+    padding: 10px;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    align-content: center;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Faz o vídeo cobrir a tela */
+    z-index: -1; 
+}
+
+.escuro_background{
+    position: absolute;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(137, 43, 226, 0.192);
+    z-index: 0; /* Fica entre o vídeo e o conteúdo */
+    
+}
+.escuro_background .div_main_box{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.escuro_background .div_main_box .div_box_sptech_machine{
+    background-color: rgba(30, 30, 30, 0.98);
+    display: flex;
+    width: 400px;
+    height: 500px;
+    border: 5px solid transparent;
+    border-image: linear-gradient(45deg, red, blue) 1; 
+    background-clip: padding-box;
+    flex-direction: column;
+}
+
+.escuro_background .div_main_box .div_box_sptech_machine .div_titulo{
+    padding: 0;
+    justify-content: center;
+}
+
+.escuro_background .div_main_box .div_box_sptech_machine h2{
+    color: #008CFF;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.1em;
+    align-items: start;
+}
+
+.escuro_background .div_main_box .div_para_h3{
+    display: inline-block;
+    
+}
+
+.escuro_background .div_main_box .div_para_h3 h3{
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: #FFFFFF;
+}
+
+.escuro_background .div_main_box .div_box_sptech_machine .div_input_e_select{
+    justify-content: center;
+}
+
+.escuro_background .div_main_box .div_box_sptech_machine .div_input_e_select #ipt_num_converter{
+    width: 300px;
+    height: 30px;
+    color: #008CFF;
+    background-color: rgba(30, 30, 30, 0.98);
+    border: 3px solid transparent;
+    border-image: linear-gradient(45deg, red, blue) 1; 
+}
+
+.div_box_sptech_machine .div_input_e_select #sele_tipo_base{
+    width: 300px;
+    height: 30px;
+    background-color: rgba(30, 30, 30, 0.98);
+    color: #008CFF;
+    border: 3px solid transparent;
+    border-image: linear-gradient(45deg, red, blue) 1;
+}
+
+.div_box_sptech_machine .div_ipt_check{
+    color: #FFFFFF;
+    justify-content: space-evenly;
+    
+}
+
+.div_box_sptech_machine .div_ipt_check .div_divisoria_ipt_check{
+    display: inline-block;
+}
+
+.div_box_sptech_machine .div_ipt_check input{
+    margin-right: 10px;
+}
+
+
+.div_box_sptech_machine .div_botao{
+    justify-content: center;
+}
+
+.div_box_sptech_machine .div_botao .bt_converter{
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(45deg, red, blue) 1;
+}
+
+.bt_converter:hover{
+    color: #FFFFFF;
+    transition: 1s;
+    background-color: black;
+    box-shadow: 0 0 10px 5px rgb(8, 85, 228), 0 0 15px 5px rgb(245, 2, 2); /*Espuma do botão */
+}
+
+.div_box_sptech_machine .div_exibir_conversoes{
+    width: 100%;
+    height: 100vh; /* 100% da altura da viewport (tela) */
+    background-color: rgba(0, 0, 255, 0.486);
+    position: absolute; /* Para garantir que ocupe o espaço da tela */
+    top: 0; /* Garante que a div começa no topo da tela */
+    left: 0; /* Garante que a div começa na lateral esquerda */
+    padding: 0;
+    flex-direction: column;
+    /* display: flex; */
+    display: none; /*Deixando as div's ocultas antes de apertar o botão "Converter" */
+}
+
+.div_box_sptech_machine .div_exibir_conversoes .div_separadora{
+    display: flex;
+    justify-content: center
+}
+
+.div_box_sptech_machine .div_exibir_conversoes .div_mensagem{
+    width: 500px;
+    height: 35vh;
+    background-color: rgba(93, 224, 202, 0.596);
+    display: grid;
+    margin: 10px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(45deg, rgb(38, 0, 255), rgb(0, 174, 255)) 1;
+}
+
+.div_box_sptech_machine .div_exibir_conversoes .div_botao .bt_converter{
+
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    border: 3px solid transparent;
+    border-image: linear-gradient(45deg, red, blue) 1;
+    
+}

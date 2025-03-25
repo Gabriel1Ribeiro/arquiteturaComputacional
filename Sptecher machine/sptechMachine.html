@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="sptechMachine.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPTecher's Machine</title>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="background.mp4" type="video/mp4">
+      </video>
+
+    <div class="escuro_background">
+        <div class="div_main_box">
+           <div class="div_box_sptech_machine">
+            <div class="div_titulo">
+                <h2>SPTecher's Machine</h2>
+            </div> 
+
+            <div class="div_para_h3">
+                <h3>Digite o número que deseja converter: </h3>
+            </div>
+            
+            <div class="div_input_e_select">
+                <input type="text" id="ipt_num_converter" placeholder="Digite o número aqui">
+            </div>
+
+            <div class="div_para_h3">
+                <h3>Qual o tipo de base que você digitou: </h3>
+            </div>            
+
+            <div class="div_input_e_select">
+                <select name="Tipo de base" id="sele_tipo_base">
+                    <option class="teste" value="" disabled selected>Tipo de base</option>
+                    <option value="binario">Binário</option>
+                    <option value="octal">Octal</option>
+                    <option value="decimal">Decimal</option>
+                    <option value="hexadecimal">Hexadecimal</option>
+                </select>
+            </div>
+
+
+            <div class="div_ipt_check">
+
+                <div class="div_divisoria_ipt_check">
+                    <div class="div_check">
+                        <input type="checkbox" name="" id="ipt_binario"> Binário
+                    </div>
+                    <div class="div_check">
+                        <input type="checkbox" name="" id="ipt_octal"> Octal
+                    </div>
+                </div>
+
+                <div class="div_divisoria_ipt_check">
+
+                    <div class="div_check">
+                        <input type="checkbox" name="" id="ipt_decimal"> Decimal
+                    </div>
+                    <div class="div_check">
+                        <input type="checkbox" name="" id="ipt_hexadecimal"> Hexadecimal
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="div_botao">
+                <button class="bt_converter" onclick="converter()">CONVERTER</button>
+            </div>
+
+            <div class="div_exibir_conversoes">
+                <div class="div_separadora">
+                    <div class="div_mensagem" id="div_binario">
+                    </div>
+
+                    <div class="div_mensagem" id="div_decimal"></div>
+                    
+                </div>
+                <div class="div_separadora">
+                    <div class="div_mensagem" id="div_octal"></div>
+                    <div class="div_mensagem" id="div_hexadecimal"></div>
+                </div>
+
+                <div class="div_botao">
+                    <button class="bt_converter" onclick="voltar()">Voltar</button>
+                </div>  
+            </div>
+
+            
+            
+
+           </div> <!-- Div "div_box_sptech_machine" -->
+        </div> <!-- Div "div_main_box" -->
+    </div> <!-- Div "escuro_background" -->
+
+    </div>
+</body>
+</html>
+
+<script>
+
+        var divs = document.querySelector(".div_exibir_conversoes"); 
+
+    function voltar(){
+         // Removendo, em caso de tirar o check
+         divs.style.display = 'none'; 
+
+    }
+    function converter(){
+
+        // Seletor correto para o contêiner
+
+// Torna a div visível
+        divs.style.display = 'flex'; 
+
+        var valorColocado = ipt_num_converter.value; // Valor inserido
+        var tipoBase = sele_tipo_base.value; // Tipo de base do número inserido
+        var baseBinario = ipt_binario.checked; // Checkbox binário
+        var baseOctal = ipt_octal.checked; // Checkbox octal
+        var baseDecimal = ipt_decimal.checked; // Checkbox decimal
+        var baseHexadecimal = ipt_hexadecimal.checked; // Checkbox hexadecimal
+  
+  // Converter o valor de acordo com a base de origem
+        var numeroConvertido;
+
+  // Verifica qual a base de origem foi escolhida
+        if (tipoBase === "binario") {
+            numeroConvertido = parseInt(valorColocado, 2); // Converte de binário para decimal
+        } else if (tipoBase === "octal") {
+            numeroConvertido = parseInt(valorColocado, 8); // Converte de octal para decimal
+        } else if (tipoBase === "hexadecimal") {
+            numeroConvertido = parseInt(valorColocado, 16); // Converte de hexadecimal para decimal
+        } else if (tipoBase === "decimal") {
+            numeroConvertido = parseInt(valorColocado, 10); // Já está em decimal
+        }
+
+        // Verifica se o número convertido é válido
+        if (isNaN(numeroConvertido)) {
+            alert("Valor inválido. Insira um número válido na base selecionada.");
+        }
+
+        // Exibe as conversões, se os checkboxes estiverem selecionados
+        if (baseBinario) {
+            div_binario.innerHTML = "Binário: " + numeroConvertido.toString(2);
+        }
+        if (baseOctal) {
+            div_octal.innerHTML = "Octal: " + numeroConvertido.toString(8);
+        }
+        if (baseDecimal) {
+            div_decimal.innerHTML = "Decimal: " + numeroConvertido.toString(10);
+        }
+        if (baseHexadecimal) {
+            div_hexadecimal.innerHTML = "Hexadecimal: " + numeroConvertido.toString(16).toUpperCase();
+        }
+
+       
+    }
+</script>
